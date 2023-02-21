@@ -111,16 +111,16 @@ public class Pocket : MonoBehaviour
 
     private void CheckItemIsNear()
     {
-        Debug.Log("CHECK ITEM");
+        // Debug.Log("CHECK ITEM");
         
         if (_currentItem == null)
             return;
         
-        Debug.Log("HAVE CURRENT ITEM");
+        // Debug.Log("HAVE CURRENT ITEM");
         
         if (!_currentItem.GetNearPocketStatus())
         {
-            Debug.Log("STOP EFFECT");
+            // Debug.Log("STOP EFFECT");
             
             _vacuumEffect.Stop();
             _currentItem = null;
