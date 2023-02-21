@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class Resizer : MonoBehaviour
 {
+    [SerializeField] private GameObject _playerGround;
+    
     private VRInputSystem _inputSystem;
     private Vector3 _bigSize;
     private Vector3 _smallSize;
@@ -15,6 +17,7 @@ public class Resizer : MonoBehaviour
 
     private void Awake()
     {
+        _playerGround.SetActive(false);
         _inputSystem = FindObjectOfType<VRInputSystem>();
         _bigSize = transform.localScale;
         _smallSize = Vector3.one;
@@ -41,6 +44,7 @@ public class Resizer : MonoBehaviour
             return;
         
         _isBig = false;
+        _playerGround.SetActive(true);
         _bigPosition = transform.position;
         transform.DOScale(_smallSize, 1);
         transform.DOMove(_smallPosition, 1);
@@ -54,6 +58,7 @@ public class Resizer : MonoBehaviour
             return;
 
         _isBig = true;
+        _playerGround.SetActive(false);
         transform.DOScale(_bigSize, 1);
         transform.DOMove(_bigPosition, 1);
     }
